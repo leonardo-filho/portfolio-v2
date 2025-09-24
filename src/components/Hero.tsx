@@ -3,16 +3,11 @@
 
 import React from 'react';
 import SkillSticker from './SkillSticker';
-import Image from 'next/image'; // Importe o componente de Imagem do Next.js
-import { motion } from 'framer-motion'; // Precisamos do motion para animar a foto
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
 
 const Hero = () => {
-  const gridStyle = {
-    backgroundImage:
-      'linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)',
-    backgroundSize: '40px 40px',
-  };
-
   const skills = [
     { text: 'Python & SQL', className: 'bg-yellow-400 top-[20%] left-[15%] md:top-[25%] md:left-[20%]' },
     { text: 'GCP', className: 'bg-blue-400 top-[60%] right-[10%] md:top-[55%] md:right-[18%]' },
@@ -23,41 +18,43 @@ const Hero = () => {
 
   return (
     <section
+      id="home"
       className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden p-4"
-      style={gridStyle}
     >
-      <div className="absolute inset-0 z-0">
+      <ParticleBackground />
+
+      <div className="absolute inset-0 z-10">
         {skills.map((skill) => (
           <SkillSticker key={skill.text} text={skill.text} className={skill.className} />
         ))}
       </div>
       
-      <div className="relative z-10 text-center pointer-events-none">
-        {/* SUA FOTO VAI AQUI */}
+      <div className="relative z-20 text-center pointer-events-none">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Image
-            src="/images/Eu.jpeg"
+            src="/images/profissional.jpg"
             alt="Foto de Leonardo Filho"
             width={128}
             height={128}
             className="mx-auto mb-6 h-32 w-32 rounded-full object-cover border-4 border-neutral-700 shadow-lg"
             priority
-            quality={100} // <-- Adicione esta linha
+            quality={100}
           />
         </motion.div>
 
         <h1 className="text-5xl font-extrabold uppercase tracking-tighter sm:text-6xl md:text-8xl lg:text-9xl">
           Analista de Dados
         </h1>
+        {/* TEXTO MELHORADO ABAIXO */}
         <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-300 md:text-xl">
-          Especialista em transformar dados em insights com Python, SQL e GCP, com forte base em ETL e visualização de dados.
+          Construindo a ponte entre dados complexos e decisões de negócio estratégicas. Especialista em Python, GCP e visualização de dados.
         </p>
         <a 
-          href="/Analista de dados Jr.docx"
+          href="/cv-leonardo-filho-analista-dados.pdf"
           download
           className="mt-8 inline-block rounded-full bg-white px-6 py-3 font-semibold text-black transition-transform hover:scale-105 pointer-events-auto"
         >
