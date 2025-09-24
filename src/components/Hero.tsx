@@ -40,7 +40,7 @@ const Hero = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Image
-            src="/profile.jpeg" // O Next.js encontra a imagem na pasta /public
+            src="/Profile.jpeg" // O Next.js encontra a imagem na pasta /public
             alt="Foto de Leonardo Filho"
             width={128} // 128 pixels de largura
             height={128} // 128 pixels de altura
