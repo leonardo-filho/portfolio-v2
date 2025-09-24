@@ -40,12 +40,13 @@ const Hero = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Image
-            src="/Profile.jpeg" // O Next.js encontra a imagem na pasta /public
+            src="/images/Eu.jpeg"
             alt="Foto de Leonardo Filho"
-            width={128} // 128 pixels de largura
-            height={128} // 128 pixels de altura
+            width={128}
+            height={128}
             className="mx-auto mb-6 h-32 w-32 rounded-full object-cover border-4 border-neutral-700 shadow-lg"
-            priority // Ajuda a carregar a imagem principal mais rápido
+            priority
+            quality={100} // <-- Adicione esta linha
           />
         </motion.div>
 
