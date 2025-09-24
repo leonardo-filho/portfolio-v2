@@ -3,16 +3,17 @@
 
 import { motion } from "framer-motion";
 import { Project } from "@/data/projects";
-import Link from "next/link"; // Importe o Link do Next.js
+import Link from "next/link";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+// Objeto de animação com a correção "as const"
 const cardVariants = {
   hidden: { y: 50, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } },
-};
+} as const;
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
