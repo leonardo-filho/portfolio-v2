@@ -54,7 +54,7 @@ const Hero = () => {
           Construindo a ponte entre dados complexos e decisões de negócio estratégicas. Especialista em Python, GCP e visualização de dados.
         </p>
         <a 
-          href="/cv-leonardo-filho-analista-dados.pdf"
+          href="/cv_leonardo_filho_analista.pdf"
           download
           className="mt-8 inline-block rounded-full bg-white px-6 py-3 font-semibold text-black transition-transform hover:scale-105 pointer-events-auto"
         >
