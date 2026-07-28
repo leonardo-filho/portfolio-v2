@@ -1,6 +1,6 @@
 // src/data/resume.ts
 // Single source of truth for the resume content shown on the site.
-// Mirrors the CV in /public/cv-leonardo-filho.pdf — keep both in sync.
+// Mirrors the CV in /public/cv-leonardo-filho.pdf, keep both in sync.
 
 export interface Experience {
   company: string;
@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
   {
     company: "Quadra Engenharia",
     role: "Data Analyst, Operations",
-    period: "06/2025 — Present",
+    period: "06/2025 - Present",
     location: "Belem, Brazil",
     highlights: [
       "Built and operate production data pipelines on GCP (Python + BigQuery) ingesting ERP, REST API, Cloud Storage and spreadsheet sources, with idempotent loads and source-vs-target validation enforced before any number is published.",
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
   {
     company: "Nexar",
     role: "Data Analyst",
-    period: "03/2025 — 06/2025",
+    period: "03/2025 - 06/2025",
     location: "Remote",
     highlights: [
       "Collected, cleaned and structured industrial sensor and time-series data, building processing pipelines for analytics and model training.",
@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
   {
     company: "Enacom Group",
     role: "Quality Analyst",
-    period: "05/2022 — 05/2023",
+    period: "05/2022 - 05/2023",
     location: "Remote",
     highlights: [
       "Analyzed system logs and performance data, identifying critical bottlenecks and contributing to a 10% increase in application stability.",
@@ -140,6 +140,6 @@ export const skillGroups: SkillGroup[] = [
 
 export const languages = [
   { name: "Portuguese", level: "Native" },
-  { name: "English", level: "Advanced — C1 (EF SET 70/100)" },
+  { name: "English", level: "Advanced (C1, EF SET 70/100)" },
   { name: "Spanish", level: "Conversational" },
 ];

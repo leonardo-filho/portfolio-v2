@@ -63,15 +63,22 @@ const Hero = () => {
             download
             className="inline-block rounded-full bg-white px-6 py-3 font-semibold text-black transition-transform hover:scale-105 pointer-events-auto"
           >
-            Download CV
+            Download CV (EN)
           </a>
           <a
-            href="#experience"
+            href="/cv-leonardo-filho-pt.pdf"
+            download
             className="inline-block rounded-full border border-neutral-700 px-6 py-3 font-semibold text-neutral-200 transition-transform hover:scale-105 hover:text-white pointer-events-auto"
           >
-            See experience
+            Currículo (PT)
           </a>
         </div>
+        <a
+          href="#experience"
+          className="mt-4 inline-block text-sm text-neutral-400 underline underline-offset-4 transition hover:text-white pointer-events-auto"
+        >
+          See experience
+        </a>
       </div>
     </section>
   );
