@@ -31,7 +31,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               ))}
             </div>
           </div>
-          <div className="mt-4 text-sm font-semibold text-white">Ver Detalhes →</div>
+          <div className="mt-4 text-sm font-semibold text-white">View details →</div>
         </div>
       </Link>
     </motion.div>

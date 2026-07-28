@@ -35,10 +35,13 @@ const Contact = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-4xl font-extrabold uppercase tracking-tighter md:text-5xl">
-          Vamos Conversar
+          Let&apos;s talk
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-neutral-400">
-          Estou sempre aberto a novas oportunidades e desafios. Se você tem um projeto em mente ou acredita que meu perfil se encaixa na sua equipe, adoraria ouvir de você.
+          I am open to remote roles in data engineering and analytics engineering.
+          Based in Belem, Brazil (GMT-3), which overlaps a full working day with the
+          US and most of the European morning. If you think there is a fit, I would
+          like to hear about it.
         </p>
         
         {/* 3. Container para os botões */}
@@ -47,14 +50,14 @@ const Contact = () => {
             href={`mailto:${emailAddress}`}
             className="inline-block rounded-full bg-white px-8 py-4 font-semibold text-black transition-transform hover:scale-105"
           >
-            Enviar um E-mail
+            Send an email
           </a>
 
           {/* Botão de Copiar */}
           <button
             onClick={handleCopyEmail}
             className="rounded-full border border-neutral-700 bg-neutral-800/50 p-4 text-neutral-300 transition-transform hover:scale-105 hover:text-white"
-            aria-label="Copiar endereço de e-mail"
+            aria-label="Copy email address"
           >
             <FiCopy size={20} />
           </button>
@@ -70,7 +73,7 @@ const Contact = () => {
               exit={{ opacity: 0, y: 20 }}
               transition={{ ease: "easeInOut" }}
             >
-              Endereço de e-mail copiado!
+              Email address copied
             </motion.div>
           )}
         </AnimatePresence>

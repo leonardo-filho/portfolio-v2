@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   
   if (!project) {
     return {
-      title: "Projeto Não Encontrado",
+      title: "Project not found",
       description: "Este projeto não foi encontrado no portfólio de Leonardo Filho.",
     }
   }
@@ -36,9 +36,9 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
     return (
       <main className="bg-black text-white min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Projeto não encontrado</h1>
+          <h1 className="text-4xl font-bold mb-4">Project not found</h1>
           <Link href="/" className="text-teal-400 hover:underline">
-            Voltar para a página inicial
+            Back to home
           </Link>
         </div>
       </main>
@@ -54,7 +54,7 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
       <div className="mx-auto max-w-4xl py-24 px-4">
         <Link href="/#projects" className="flex items-center gap-2 text-neutral-400 hover:text-white mb-8 transition-colors">
           <FiArrowLeft />
-          <span>Voltar para todos os projetos</span>
+          <span>Back to all projects</span>
         </Link>
         
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{project.title}</h1>
@@ -84,7 +84,7 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
         {/* Galeria de Imagens Adicionais (só renderiza se houver mais de uma imagem) */}
         {hasImages && project.images.length > 1 && (
           <>
-            <h2 className="text-2xl font-bold mb-6">Galeria de Imagens</h2>
+            <h2 className="text-2xl font-bold mb-6">Gallery</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.images.slice(1).map(img => (
                 <div key={img.src}>

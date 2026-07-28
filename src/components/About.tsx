@@ -14,15 +14,30 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="mb-8 text-center text-4xl font-extrabold uppercase tracking-tighter md:text-5xl">
-            Sobre Mim
+            About
           </h2>
-          {/* TEXTO MELHORADO ABAIXO */}
           <div className="prose prose-invert prose-neutral max-w-none text-lg text-neutral-300">
             <p>
-              Minha jornada na tecnologia começou com a <strong>Engenharia da Computação</strong>, onde desenvolvi uma mentalidade estruturada para resolver problemas complexos. Hoje, como Analista de Dados, aplico essa mesma lógica de engenharia para uma finalidade clara: <strong>decodificar a história que os dados contam</strong> e transformá-la em uma vantagem competitiva para o negócio.
+              I am a data professional with a <strong>Computer Engineering</strong> degree
+              and an <strong>MBA in AI, Data Science and Big Data</strong>, with three years
+              building and operating production data pipelines on{" "}
+              <strong>Google Cloud Platform</strong>.
             </p>
             <p>
-              Meu foco é construir soluções de ponta a ponta. Seja desenvolvendo pipelines de dados automatizados na <strong>Google Cloud Platform</strong>, criando modelos preditivos com <strong>Python</strong> ou projetando dashboards interativos em <strong>Power BI</strong> e <strong>Streamlit</strong>, minha paixão é entregar ferramentas que não apenas informam, mas capacitam equipes a tomar decisões mais inteligentes e orientadas por evidências.
+              Day to day my work is pipeline reliability: Python and BigQuery ingestion
+              from ERP systems, REST APIs and Cloud Storage, idempotent loads,
+              source-vs-target validation, and structured execution logging with freshness
+              monitoring that turns silent failures into alerts. I care about grain,
+              documentation and validating a number before anyone reports it.
+            </p>
+            <p>
+              I am comfortable on both ends of the stack, from industrial sensor and
+              time-series data to executive KPI dashboards. I built{" "}
+              <strong>Quadra One</strong>, an executive analytics platform in Next.js and
+              TypeScript on top of live BigQuery data, read directly by directors with no
+              analyst in the room, and <strong>BillBot</strong>, a Python compliance auditing
+              system that cross-checks financial records and notifies owners with traceable
+              reports.
             </p>
           </div>
         </motion.div>

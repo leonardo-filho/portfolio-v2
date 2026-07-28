@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="w-full bg-neutral-950 py-8 px-4">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
         <p className="text-sm text-neutral-500">
-          © {new Date().getFullYear()} Leonardo Filho. Todos os direitos reservados.
+          © {new Date().getFullYear()} Leonardo Filho. All rights reserved.
         </p>
         <div className="flex items-center gap-6">
           {socialLinks.map(link => (

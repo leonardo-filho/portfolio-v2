@@ -17,7 +17,7 @@ const Projects = () => {
     <section id="projects" className="w-full bg-black py-20 px-4 md:px-8">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-12 text-center text-4xl font-extrabold uppercase tracking-tighter md:text-5xl">
-          Projetos em Destaque
+          Selected Projects
         </h2>
         <motion.div
           className="grid grid-cols-1 gap-8 md:grid-cols-2"

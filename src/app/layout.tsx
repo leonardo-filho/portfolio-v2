@@ -9,14 +9,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 // DEIXE APENAS ESTE BLOCO DE METADATA ESTÁTICO AQUI
 export const metadata: Metadata = {
-  title: "Leonardo Filho | Analista de Dados",
-  description: "Portfólio de Leonardo Filho, Analista de Dados especialista em Python, SQL, GCP e visualização de dados.",
+  metadataBase: new URL("https://leonardo-filho.vercel.app"),
+  title: "Leonardo Filho | Analytics Engineer",
+  description:
+    "Analytics Engineer building production data pipelines on Google Cloud: BigQuery, Python, dbt and Next.js. Remote, GMT-3.",
   openGraph: {
-    title: "Leonardo Filho | Analista de Dados",
-    description: "Portfólio de um especialista em transformar dados em insights estratégicos.",
-    url: "https://seu-portfolio.vercel.app", // Lembre-se de trocar pela sua URL
+    title: "Leonardo Filho | Analytics Engineer",
+    description:
+      "Production data pipelines on GCP, pipeline reliability and executive dashboards. BigQuery, Python, dbt, Next.js.",
+    url: "https://leonardo-filho.vercel.app",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-    locale: "pt_BR",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -29,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="!scroll-smooth">
+    <html lang="en" className="!scroll-smooth">
       <body className={`${inter.className} bg-black text-neutral-200`}>
         <Header />
         {children}

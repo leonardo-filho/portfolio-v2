@@ -6,10 +6,12 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   const navLinks = [
-    { name: "Início", hash: "/#home" },
-    { name: "Projetos", hash: "/#projects" },
-    { name: "Sobre", hash: "/#about" },
-    { name: "Contato", hash: "/#contact" },
+    { name: "Home", hash: "/#home" },
+    { name: "Experience", hash: "/#experience" },
+    { name: "Projects", hash: "/#projects" },
+    { name: "Credentials", hash: "/#credentials" },
+    { name: "About", hash: "/#about" },
+    { name: "Contact", hash: "/#contact" },
   ];
 
   return (
@@ -19,8 +21,8 @@ const Header = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto mt-4 max-w-2xl rounded-full border border-neutral-800 bg-black/50 px-6 py-3 shadow-lg backdrop-blur-lg">
-        <nav className="flex items-center justify-center gap-6 text-sm md:text-base">
+      <div className="mx-4 mt-4 rounded-3xl border border-neutral-800 bg-black/50 px-4 py-3 shadow-lg backdrop-blur-lg sm:mx-auto sm:max-w-3xl sm:rounded-full sm:px-6">
+        <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm md:gap-x-6 md:text-base">
           {navLinks.map(link => (
             <Link 
               key={link.name}

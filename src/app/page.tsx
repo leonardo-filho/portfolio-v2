@@ -1,16 +1,20 @@
 // src/app/page.tsx
 import Hero from '@/components/Hero';
+import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
-import About from '@/components/About'; // 1. Importe o About
-import Contact from '@/components/Contact'; // 2. Importe o Contact
+import Credentials from '@/components/Credentials';
+import About from '@/components/About';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <Experience />
       <Projects />
-      <About />   {/* 3. Adicione a seção About */}
-      <Contact /> {/* 4. Adicione a seção Contact */}
+      <Credentials />
+      <About />
+      <Contact />
     </main>
   );
 }
