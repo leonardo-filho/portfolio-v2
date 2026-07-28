@@ -22,6 +22,7 @@ export interface Certification {
   issuer: string;
   year: string;
   credentialId?: string;
+  group: "cloud" | "analytics";
 }
 
 export interface SkillGroup {
@@ -84,31 +85,85 @@ export const education: Education[] = [
   },
 ];
 
+export const certificationGroups: Record<Certification["group"], string> = {
+  cloud: "Cloud & data engineering",
+  analytics: "Analytics, ML & BI",
+};
+
 export const certifications: Certification[] = [
   {
     name: "Developing Data Models with LookML",
     issuer: "Google Cloud",
     year: "2026",
     credentialId: "25993908",
+    group: "cloud",
   },
   {
     name: "Smart Analytics, Machine Learning and AI on Google Cloud",
     issuer: "Google Cloud",
     year: "2026",
     credentialId: "SCQXE2ZE7XDJ",
+    group: "cloud",
   },
-  { name: "dbt Fundamentals", issuer: "dbt Labs", year: "2026" },
+  { name: "dbt Fundamentals", issuer: "dbt Labs", year: "2026", group: "cloud" },
   {
     name: "Modernizing Data Lakes and Data Warehouses with Google Cloud",
     issuer: "Google Cloud (Coursera)",
     year: "2025",
+    group: "cloud",
+  },
+  {
+    name: "Google Advanced Data Analytics",
+    issuer: "Google",
+    year: "2025",
+    credentialId: "6CE7415GTKMJ",
+    group: "analytics",
+  },
+  {
+    name: "Google Advanced Data Analytics Capstone",
+    issuer: "Google",
+    year: "2025",
+    credentialId: "8IR4BO61RBUR",
+    group: "analytics",
+  },
+  {
+    name: "Regression Analysis: Simplify Complex Data Relationships",
+    issuer: "Google",
+    year: "2025",
+    credentialId: "KWAI1E1VA7L6",
+    group: "analytics",
+  },
+  {
+    name: "Foundations of Data Science",
+    issuer: "Google",
+    year: "2025",
+    group: "analytics",
   },
   {
     name: "Google Data Analytics Professional Certificate",
     issuer: "Google (Coursera)",
     year: "2025",
+    group: "analytics",
   },
-  { name: "Python for Data Analytics", issuer: "Meta (Coursera)", year: "2025" },
+  {
+    name: "Python Data Analytics",
+    issuer: "Meta (Coursera)",
+    year: "2025",
+    group: "analytics",
+  },
+  {
+    name: "Business Intelligence Analyst",
+    issuer: "Escola DNC",
+    year: "2025",
+    credentialId: "1230822",
+    group: "analytics",
+  },
+  {
+    name: "Microsoft Power BI for Business Intelligence and Data Science",
+    issuer: "Data Science Academy",
+    year: "2024",
+    group: "analytics",
+  },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -140,6 +195,6 @@ export const skillGroups: SkillGroup[] = [
 
 export const languages = [
   { name: "Portuguese", level: "Native" },
-  { name: "English", level: "Advanced (C1, EF SET 70/100)" },
+  { name: "English", level: "Advanced C1, certified by EF SET (70/100)" },
   { name: "Spanish", level: "Conversational" },
 ];

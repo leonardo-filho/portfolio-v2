@@ -2,7 +2,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { certifications, education, languages, skillGroups } from "@/data/resume";
+import {
+  certificationGroups,
+  certifications,
+  education,
+  languages,
+  skillGroups,
+  type Certification,
+} from "@/data/resume";
+
+const groupOrder: Certification["group"][] = ["cloud", "analytics"];
 
 const Credentials = () => {
   return (
@@ -63,25 +72,34 @@ const Credentials = () => {
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-500">
               Certifications
             </h3>
-            <ul className="space-y-3">
-              {certifications.map((cert) => (
-                <li
-                  key={cert.name}
-                  className="rounded-xl border border-neutral-800 bg-black p-4"
-                >
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <p className="font-medium text-white">{cert.name}</p>
-                    <span className="text-sm text-neutral-500">{cert.year}</span>
-                  </div>
-                  <p className="mt-1 text-sm text-neutral-400">
-                    {cert.issuer}
-                    {cert.credentialId ? (
-                      <span className="text-neutral-600"> · ID {cert.credentialId}</span>
-                    ) : null}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            {groupOrder.map((group) => (
+              <div key={group} className="mb-6 last:mb-0">
+                <p className="mb-3 text-xs uppercase tracking-widest text-neutral-600">
+                  {certificationGroups[group]}
+                </p>
+                <ul className="space-y-3">
+                  {certifications
+                    .filter((cert) => cert.group === group)
+                    .map((cert) => (
+                      <li
+                        key={cert.name}
+                        className="rounded-xl border border-neutral-800 bg-black p-4"
+                      >
+                        <div className="flex flex-wrap items-baseline justify-between gap-2">
+                          <p className="font-medium text-white">{cert.name}</p>
+                          <span className="text-sm text-neutral-500">{cert.year}</span>
+                        </div>
+                        <p className="mt-1 text-sm text-neutral-400">
+                          {cert.issuer}
+                          {cert.credentialId ? (
+                            <span className="text-neutral-600"> · ID {cert.credentialId}</span>
+                          ) : null}
+                        </p>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
           </motion.div>
         </div>
 
