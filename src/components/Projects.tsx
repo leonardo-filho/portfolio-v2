@@ -1,38 +1,29 @@
-// src/components/Projects.tsx
 "use client";
 
-import React from 'react';
-import ProjectCard from './ProjectCard';
-import { motion } from 'framer-motion';
-import { projects } from '@/data/projects';
+import { useState } from "react";
+import ProjectCard from "./ProjectCard";
+import { projects } from "@/data/projects";
+import { copy, type Locale } from "@/lib/i18n";
 
-const Projects = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  };
+type Filter = "all" | "engineering" | "ml" | "bi";
 
+export default function Projects({ locale }: { locale: Locale }) {
+  const [filter, setFilter] = useState<Filter>("all");
+  const t = copy[locale].projects;
+  const filters = Object.entries(t.filters) as [Filter, string][];
+  const visible = filter === "all" ? projects : projects.filter((project) => project.category === filter);
   return (
-    // Adicionamos um id para o smooth scroll funcionar depois
-    <section id="projects" className="w-full bg-black py-20 px-4 md:px-8">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-4xl font-extrabold uppercase tracking-tighter md:text-5xl">
-          Selected Projects
-        </h2>
-        <motion.div
-          className="grid grid-cols-1 gap-8 md:grid-cols-2"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </motion.div>
+    <section id="projects" className="section projects-section">
+      <div className="section-heading split-heading light">
+        <div><p className="eyebrow">04 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p>
+      </div>
+      <div className="project-toolbar" role="group" aria-label={t.filterLabel}>
+        <div>{filters.map(([key, label]) => <button key={key} className={filter === key ? "active" : ""} onClick={() => setFilter(key)} aria-pressed={filter === key}>{label}</button>)}</div>
+        <span>{visible.length} {t.count}</span>
+      </div>
+      <div className="project-grid">
+        {visible.map((project, index) => <ProjectCard key={project.id} project={project} locale={locale} index={index} />)}
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

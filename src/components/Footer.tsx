@@ -1,36 +1,15 @@
-// src/components/Footer.tsx
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+"use client";
 
-const socialLinks = [
-  { icon: <FiLinkedin />, href: "https://www.linkedin.com/in/leo-filho/", label: "LinkedIn" },
-  { icon: <FiGithub />, href: "https://github.com/leonardo-filho", label: "GitHub" },
-  { icon: <FiMail />, href: "mailto:leonardofilho.work@gmail.com", label: "Email" },
-];
+import { usePathname } from "next/navigation";
+import { copy, type Locale } from "@/lib/i18n";
 
-const Footer = () => {
+export default function Footer() {
+  const locale: Locale = usePathname().startsWith("/en") ? "en" : "pt-BR";
   return (
-    <footer className="w-full bg-neutral-950 py-8 px-4">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
-        <p className="text-sm text-neutral-500">
-          © {new Date().getFullYear()} Leonardo Filho. All rights reserved.
-        </p>
-        <div className="flex items-center gap-6">
-          {socialLinks.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="text-neutral-400 transition hover:text-white"
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div>
-      </div>
+    <footer className="footer">
+      <p>© {new Date().getFullYear()} Leonardo Filho</p>
+      <p>{copy[locale].footer}</p>
+      <a href="#main-content" aria-label={locale === "en" ? "Back to top" : "Voltar ao topo"}>↑</a>
     </footer>
   );
-};
-
-export default Footer;
+}

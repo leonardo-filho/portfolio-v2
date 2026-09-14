@@ -8,6 +8,6 @@ export function generateStaticParams() { return projects.map((project) => ({ id:
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const project = projects.find((item) => item.id.toString() === id);
-  return project ? { title: `${project.title["pt-BR"]} | Leonardo Filho`, description: project.shortDescription["pt-BR"] } : { title: "Projeto não encontrado" };
+  return project ? { title: `${project.title.en} | Leonardo Filho`, description: project.shortDescription.en } : { title: "Project not found" };
 }
-export default async function Page({ params }: Props) { return <ProjectDetails id={(await params).id} locale="pt-BR"/>; }
+export default async function Page({ params }: Props) { return <ProjectDetails id={(await params).id} locale="en"/>; }

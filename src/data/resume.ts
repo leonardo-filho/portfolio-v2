@@ -1,200 +1,90 @@
-// src/data/resume.ts
-// Single source of truth for the resume content shown on the site.
-// Mirrors the CV in /public/cv-leonardo-filho.pdf, keep both in sync.
+import type { Locale } from "@/lib/i18n";
 
-export interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  highlights: string[];
-  stack: string[];
-}
+export type Experience = { company: string; role: string; period: string; location: string; highlights: string[]; stack: string[] };
+export type Certification = { name: string; issuer: string; year: string; type: "specialization" | "course" | "badge" | "certificate"; group: "cloud" | "analytics"; credentialId?: string; url?: string; featured?: boolean };
 
-export interface Education {
-  degree: string;
-  school: string;
-  period: string;
-}
+const quadraStack = ["Python", "BigQuery", "Google Cloud", "Cloud Run", "Next.js", "TypeScript", "Power BI"];
 
-export interface Certification {
-  name: string;
-  issuer: string;
-  year: string;
-  credentialId?: string;
-  group: "cloud" | "analytics";
-}
-
-export interface SkillGroup {
-  label: string;
-  items: string[];
-}
-
-export const experiences: Experience[] = [
-  {
-    company: "Quadra Engenharia",
-    role: "Data Analyst, Operations",
-    period: "06/2025 - Present",
-    location: "Belem, Brazil",
-    highlights: [
-      "Built and operate production data pipelines on GCP (Python + BigQuery) ingesting ERP, REST API, Cloud Storage and spreadsheet sources, with idempotent loads and source-vs-target validation enforced before any number is published.",
-      "Designed the monitoring layer for those pipelines: structured execution logs and run telemetry in a dedicated BigQuery dataset, making pipeline state queryable and auditable instead of silently failing.",
-      "Detected and diagnosed a stalled upstream job that had frozen 26 warehouse tables unnoticed, plus a table dead since January still being read as current; escalated and drove the fix, then added freshness guard-rails so downstream apps refuse stale data.",
-      "Developed BillBot, a Python compliance auditing system that cross-checks financial records in BigQuery, flags inconsistencies at the correct grain and notifies owners with traceable reports, with a QA gate and durable false-positive tracking.",
-      "Built Quadra One, an executive analytics platform (Next.js + TypeScript + ECharts) reading live BigQuery data, delivering KPI dashboards read directly by directors with no analyst in the room.",
-      "Integrated Google Gemini (Vertex AI) as an LLM-as-a-judge in automated financial document reconciliation, and shipped a RAG assistant over internal procedures.",
+export const resumeByLocale: Record<Locale, {
+  experiences: Experience[];
+  education: { degree: string; school: string; period: string }[];
+  languages: { name: string; level: string }[];
+  skillGroups: { label: string; items: string[] }[];
+}> = {
+  "pt-BR": {
+    experiences: [
+      {
+        company: "Quadra Engenharia", role: "Especialista em Engenharia de Dados", period: "jun. 2025 — atual", location: "Belém, PA · PJ",
+        highlights: [
+          "Construção e operação de pipelines em Google Cloud para integrar ERP, APIs, arquivos e planilhas ao BigQuery, com cargas idempotentes e validação entre origem e destino.",
+          "Criação de automações que auditam rotinas financeiras e de suprimentos, identificam exceções e entregam relatórios rastreáveis aos responsáveis.",
+          "Desenvolvimento do Quadra One, plataforma interna de indicadores executivos com Next.js, TypeScript, ECharts e dados do BigQuery.",
+          "Implantação de telemetria e controles de qualidade para acompanhar execuções, atualização das fontes e falhas antes que cheguem aos relatórios.",
+        ], stack: quadraStack,
+      },
+      {
+        company: "Nexar", role: "Analista de Dados", period: "mar. — jun. 2025", location: "Remoto",
+        highlights: ["Estruturação de dados de sensores industriais e séries temporais para análises e treinamento de modelos.", "Prototipação de modelos de machine learning para detecção antecipada de falhas em equipamentos.", "Entrega da camada analítica e visual do MVP apresentado a investidores."],
+        stack: ["Python", "scikit-learn", "MySQL", "Séries temporais", "Flask", "React"],
+      },
+      {
+        company: "Enacom Group", role: "Analista de Qualidade", period: "mai. 2022 — mai. 2023", location: "Remoto",
+        highlights: ["Análise de logs e desempenho para localizar gargalos críticos, contribuindo para elevar em 10% a estabilidade da aplicação.", "Automação de testes e análise de logs em Python, com ganho de 30% na eficiência do processo de QA.", "Painéis em Power BI e relatórios de qualidade para apoiar a priorização do roadmap de desenvolvimento."],
+        stack: ["Python", "Power BI", "SQL", "Automação de testes"],
+      },
     ],
-    stack: ["Python", "BigQuery", "GCP", "Next.js", "TypeScript", "ECharts", "Vertex AI", "Docker"],
-  },
-  {
-    company: "Nexar",
-    role: "Data Analyst",
-    period: "03/2025 - 06/2025",
-    location: "Remote",
-    highlights: [
-      "Collected, cleaned and structured industrial sensor and time-series data, building processing pipelines for analytics and model training.",
-      "Prototyped and validated supervised machine learning models (scikit-learn) for early equipment failure detection (predictive maintenance).",
-      "Delivered the analytics and visualization layer of the monitoring platform MVP, used in investor presentations.",
+    education: [
+      { degree: "MBA em Inteligência Artificial, Ciência de Dados e Big Data", school: "PUCRS", period: "Concluído em abr. 2026" },
+      { degree: "Bacharelado em Engenharia de Computação", school: "CESUPA", period: "Concluído em dez. 2024" },
     ],
-    stack: ["Python", "scikit-learn", "MySQL", "Time Series", "Flask", "React"],
-  },
-  {
-    company: "Enacom Group",
-    role: "Quality Analyst",
-    period: "05/2022 - 05/2023",
-    location: "Remote",
-    highlights: [
-      "Analyzed system logs and performance data, identifying critical bottlenecks and contributing to a 10% increase in application stability.",
-      "Automated testing and log analysis routines in Python, improving QA process efficiency by 30%.",
-      "Built Power BI dashboards and Excel reports on software quality metrics, supporting development roadmap prioritization.",
+    languages: [{ name: "Português", level: "Nativo" }, { name: "Inglês", level: "C1 avançado · EF SET 70/100" }, { name: "Espanhol", level: "Conversação" }],
+    skillGroups: [
+      { label: "Cloud & dados", items: ["BigQuery", "Cloud Storage", "Cloud Run Jobs", "Cloud Scheduler", "Docker"] },
+      { label: "Engenharia", items: ["Python", "SQL avançado", "Pandas", "APIs REST", "Cargas idempotentes", "Validação de dados"] },
+      { label: "Analytics", items: ["Power BI", "Looker / LookML", "ECharts", "Next.js", "Modelagem dimensional"] },
+      { label: "IA & aprendizado", items: ["scikit-learn", "BigQuery ML", "Vertex AI / Gemini", "RAG", "Séries temporais"] },
     ],
-    stack: ["Python", "Power BI", "SQL", "QA Automation"],
   },
-];
-
-export const education: Education[] = [
-  {
-    degree: "MBA in Artificial Intelligence, Data Science and Big Data",
-    school: "PUC-RS",
-    period: "Completed 04/2026",
+  en: {
+    experiences: [
+      {
+        company: "Quadra Engenharia", role: "Data Engineering Specialist", period: "Jun 2025 — present", location: "Belém, Brazil · Contractor",
+        highlights: ["Build and operate Google Cloud pipelines that integrate ERP, APIs, files and spreadsheets into BigQuery, with idempotent loads and source-to-target validation.", "Create automation that audits financial and procurement workflows, identifies exceptions and delivers traceable reports to the people responsible.", "Develop Quadra One, an internal executive analytics platform built with Next.js, TypeScript, ECharts and BigQuery data.", "Implemented telemetry and data quality controls to track runs, source freshness and failures before they reach business reports."],
+        stack: quadraStack,
+      },
+      {
+        company: "Nexar", role: "Data Analyst", period: "Mar — Jun 2025", location: "Remote",
+        highlights: ["Structured industrial sensor and time series data for analytics and model training.", "Prototyped machine learning models for early equipment failure detection.", "Delivered the analytical and visual layer of the MVP used in investor presentations."],
+        stack: ["Python", "scikit-learn", "MySQL", "Time series", "Flask", "React"],
+      },
+      {
+        company: "Enacom Group", role: "Quality Analyst", period: "May 2022 — May 2023", location: "Remote",
+        highlights: ["Analyzed system logs and performance data to identify critical bottlenecks, contributing to a 10% increase in application stability.", "Automated testing and log analysis in Python, improving QA process efficiency by 30%.", "Built Power BI dashboards and quality reports to support development roadmap priorities."],
+        stack: ["Python", "Power BI", "SQL", "Test automation"],
+      },
+    ],
+    education: [{ degree: "MBA in Artificial Intelligence, Data Science and Big Data", school: "PUCRS", period: "Completed Apr 2026" }, { degree: "B.Sc. in Computer Engineering", school: "CESUPA", period: "Completed Dec 2024" }],
+    languages: [{ name: "Portuguese", level: "Native" }, { name: "English", level: "Advanced C1 · EF SET 70/100" }, { name: "Spanish", level: "Conversational" }],
+    skillGroups: [
+      { label: "Cloud & data", items: ["BigQuery", "Cloud Storage", "Cloud Run Jobs", "Cloud Scheduler", "Docker"] },
+      { label: "Engineering", items: ["Python", "Advanced SQL", "Pandas", "REST APIs", "Idempotent loads", "Data validation"] },
+      { label: "Analytics", items: ["Power BI", "Looker / LookML", "ECharts", "Next.js", "Dimensional modeling"] },
+      { label: "AI & machine learning", items: ["scikit-learn", "BigQuery ML", "Vertex AI / Gemini", "RAG", "Time series"] },
+    ],
   },
-  {
-    degree: "B.Sc. in Computer Engineering",
-    school: "Centro Universitario do Estado do Para (CESUPA)",
-    period: "Completed 12/2024",
-  },
-];
-
-export const certificationGroups: Record<Certification["group"], string> = {
-  cloud: "Cloud & data engineering",
-  analytics: "Analytics, ML & BI",
 };
 
 export const certifications: Certification[] = [
-  {
-    name: "Developing Data Models with LookML",
-    issuer: "Google Cloud",
-    year: "2026",
-    credentialId: "25993908",
-    group: "cloud",
-  },
-  {
-    name: "Smart Analytics, Machine Learning and AI on Google Cloud",
-    issuer: "Google Cloud",
-    year: "2026",
-    credentialId: "SCQXE2ZE7XDJ",
-    group: "cloud",
-  },
-  { name: "dbt Fundamentals", issuer: "dbt Labs", year: "2026", group: "cloud" },
-  {
-    name: "Modernizing Data Lakes and Data Warehouses with Google Cloud",
-    issuer: "Google Cloud (Coursera)",
-    year: "2025",
-    group: "cloud",
-  },
-  {
-    name: "Google Advanced Data Analytics",
-    issuer: "Google",
-    year: "2025",
-    credentialId: "6CE7415GTKMJ",
-    group: "analytics",
-  },
-  {
-    name: "Google Advanced Data Analytics Capstone",
-    issuer: "Google",
-    year: "2025",
-    credentialId: "8IR4BO61RBUR",
-    group: "analytics",
-  },
-  {
-    name: "Regression Analysis: Simplify Complex Data Relationships",
-    issuer: "Google",
-    year: "2025",
-    credentialId: "KWAI1E1VA7L6",
-    group: "analytics",
-  },
-  {
-    name: "Foundations of Data Science",
-    issuer: "Google",
-    year: "2025",
-    group: "analytics",
-  },
-  {
-    name: "Google Data Analytics Professional Certificate",
-    issuer: "Google (Coursera)",
-    year: "2025",
-    group: "analytics",
-  },
-  {
-    name: "Python Data Analytics",
-    issuer: "Meta (Coursera)",
-    year: "2025",
-    group: "analytics",
-  },
-  {
-    name: "Business Intelligence Analyst",
-    issuer: "Escola DNC",
-    year: "2025",
-    credentialId: "1230822",
-    group: "analytics",
-  },
-  {
-    name: "Microsoft Power BI for Business Intelligence and Data Science",
-    issuer: "Data Science Academy",
-    year: "2024",
-    group: "analytics",
-  },
-];
-
-export const skillGroups: SkillGroup[] = [
-  {
-    label: "Cloud (GCP)",
-    items: ["BigQuery", "Cloud Storage", "Cloud Run Jobs", "Cloud Scheduler", "Vertex AI", "IAM & Service Accounts", "Docker"],
-  },
-  {
-    label: "Pipeline reliability",
-    items: ["Structured execution logging", "Freshness & staleness checks", "Idempotent loads", "Source-vs-target reconciliation", "Automated alerting", "Root-cause analysis"],
-  },
-  {
-    label: "Programming",
-    items: ["Python (Pandas, NumPy, scikit-learn)", "Advanced SQL", "TypeScript", "Bash"],
-  },
-  {
-    label: "Modeling & governance",
-    items: ["Layered modeling (staging, intermediate, marts)", "dbt", "LookML", "Documented grain", "Data quality checks"],
-  },
-  {
-    label: "BI & dashboards",
-    items: ["Power BI", "Looker / LookML", "ECharts", "Next.js analytics apps", "Executive KPI reporting"],
-  },
-  {
-    label: "Integrations & APIs",
-    items: ["REST API extraction", "Sienge ERP", "Microsoft Graph API", "Notion API", "Semi-structured payloads"],
-  },
-];
-
-export const languages = [
-  { name: "Portuguese", level: "Native" },
-  { name: "English", level: "Advanced C1, certified by EF SET (70/100)" },
-  { name: "Spanish", level: "Conversational" },
+  { name: "Data Engineering, Big Data, and Machine Learning on GCP", issuer: "Coursera · Google Cloud Training", year: "2026", type: "specialization", group: "cloud", credentialId: "N1MHT34CFOJK", url: "https://coursera.org/verify/specialization/N1MHT34CFOJK", featured: true },
+  { name: "Preparing for Google Cloud Certification: Cloud Data Engineer", issuer: "Coursera · Google Cloud", year: "2026", type: "certificate", group: "cloud", credentialId: "UNZTPICXY600", url: "https://coursera.org/verify/professional-cert/UNZTPICXY600", featured: true },
+  { name: "Build Streaming Data Pipelines on Google Cloud", issuer: "Coursera · Google Cloud", year: "2026", type: "course", group: "cloud", credentialId: "N074SL4LXK97", url: "https://coursera.org/verify/N074SL4LXK97" },
+  { name: "Build Batch Data Pipelines on Google Cloud", issuer: "Coursera · Google Cloud", year: "2026", type: "course", group: "cloud", credentialId: "A3AZ6HSVH61G", url: "https://coursera.org/verify/A3AZ6HSVH61G" },
+  { name: "AI Driven Data Engineering", issuer: "Dagster University", year: "2026", type: "course", group: "cloud", credentialId: "tenegr0ipk" },
+  { name: "Developing Data Models with LookML", issuer: "Google Cloud Skills Boost", year: "2026", type: "badge", group: "cloud", credentialId: "25993908" },
+  { name: "dbt Fundamentals", issuer: "dbt Labs", year: "2026", type: "badge", group: "cloud" },
+  { name: "Introduction to Vertex Forecasting and Time Series in Practice", issuer: "Coursera · Google Cloud", year: "2026", type: "course", group: "analytics", credentialId: "DTJ2TYX0CUSG", url: "https://coursera.org/verify/DTJ2TYX0CUSG" },
+  { name: "Google Advanced Data Analytics", issuer: "Coursera · Google", year: "2025", type: "certificate", group: "analytics", credentialId: "6CE7415GTKMJ" },
+  { name: "Google Data Analytics", issuer: "Coursera · Google", year: "2025", type: "certificate", group: "analytics" },
+  { name: "Business Intelligence Analyst", issuer: "Escola DNC", year: "2025", type: "course", group: "analytics", credentialId: "1230822" },
+  { name: "Microsoft Power BI for Business Intelligence and Data Science", issuer: "Data Science Academy", year: "2024", type: "course", group: "analytics" },
 ];

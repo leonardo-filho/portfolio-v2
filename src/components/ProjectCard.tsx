@@ -1,41 +1,27 @@
-// src/components/ProjectCard.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import { Project } from "@/data/projects";
+import Image from "next/image";
 import Link from "next/link";
+import { FiArrowUpRight, FiLock } from "react-icons/fi";
+import type { Project } from "@/data/projects";
+import { copy, localizedPath, type Locale } from "@/lib/i18n";
 
-interface ProjectCardProps {
-  project: Project;
-}
-
-// Objeto de animação com a correção "as const"
-const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } },
-} as const;
-
-const ProjectCard = ({ project }: ProjectCardProps) => {
+export default function ProjectCard({ project, locale, index }: { project: Project; locale: Locale; index: number }) {
+  const t = copy[locale].projects;
+  const href = localizedPath(locale, `/projects/${project.id}`);
   return (
-    <motion.div variants={cardVariants}>
-      <Link href={`/projects/${project.id}`} className="block h-full">
-        <div className="flex h-full cursor-pointer flex-col justify-between rounded-lg border border-neutral-800 bg-neutral-900/50 p-6 shadow-lg backdrop-blur-sm transition-transform hover:-translate-y-2">
-          <div>
-            <h3 className="mb-2 text-xl font-bold text-white">{project.title}</h3>
-            <p className="mb-4 text-neutral-400">{project.shortDescription}</p>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.slice(0, 4).map((tag) => (
-                <span key={tag} className="rounded-full bg-teal-900/50 px-3 py-1 text-xs font-medium text-teal-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="mt-4 text-sm font-semibold text-white">View details →</div>
+    <article className={`project-card ${index === 0 ? "project-featured" : ""}`}>
+      <Link href={href}>
+        <div className="project-visual">
+          {project.images[0] ? <Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1200} height={675} sizes="(max-width: 768px) 100vw, 50vw" /> : <div className="internal-visual"><span>LF / 0{project.id}</span><div className="data-lines"><i/><i/><i/><i/></div></div>}
+          <span className="project-type">{project.visibility === "internal" ? <><FiLock/>{t.internal}</> : t.study}</span>
+        </div>
+        <div className="project-body">
+          <div><span className="project-index">0{index + 1}</span><h3>{project.title[locale]}</h3><p>{project.shortDescription[locale]}</p></div>
+          <div className="project-tags">{project.technologies.slice(0, 4).map((tech) => <span key={tech}>{tech}</span>)}</div>
+          <span className="project-link">{t.view}<FiArrowUpRight/></span>
         </div>
       </Link>
-    </motion.div>
+    </article>
   );
-};
-
-export default ProjectCard;
+}
