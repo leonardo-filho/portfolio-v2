@@ -13,6 +13,7 @@ export type Project = {
   githubUrl?: string;
   liveUrl?: string;
   images: { src: string; caption: LocalizedText }[];
+  highlights?: { value: LocalizedText; label: LocalizedText }[];
 };
 
 export const projects: Project[] = [
@@ -40,19 +41,24 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: { "pt-BR": "Previsão de rotatividade de pessoas", en: "Employee attrition prediction" },
-    shortDescription: { "pt-BR": "Projeto ponta a ponta: análise, modelo preditivo, API no Google Cloud e dashboard React.", en: "End-to-end project: analysis, predictive model, Google Cloud API and React dashboard." },
+    title: { "pt-BR": "Salifort — People Risk Lab", en: "Salifort — People Risk Lab" },
+    shortDescription: { "pt-BR": "Produto interativo que transforma um estudo de rotatividade em sinais, cenários e decisões investigáveis.", en: "An interactive product that turns an attrition study into signals, scenarios and decisions worth investigating." },
     longDescription: {
-      "pt-BR": `<p>Projeto final do Google Advanced Data Analytics, desenvolvido com um conjunto de dados público de RH. A solução percorre análise exploratória, modelagem e entrega de uma aplicação interativa.</p><h2>Solução</h2><ul><li>Análise de satisfação, carga de trabalho, projetos e remuneração.</li><li>Modelo para estimar a probabilidade de desligamento.</li><li>API FastAPI publicada no Google Cloud Run.</li><li>Interface React para explorar dados e simular cenários.</li><li>Relatório executivo com processo, resultados e limites.</li></ul>`,
-      en: `<p>Capstone for the Google Advanced Data Analytics program, using a public HR dataset. The solution covers exploratory analysis, modeling and delivery through an interactive application.</p><h2>Solution</h2><ul><li>Analysis of satisfaction, workload, projects and compensation.</li><li>A model that estimates attrition probability.</li><li>FastAPI service deployed to Google Cloud Run.</li><li>React interface to explore data and simulate scenarios.</li><li>Executive report covering process, results and limitations.</li></ul>`,
+      "pt-BR": `<p>O capstone do Google Advanced Data Analytics partiu de uma base pública de RH e evoluiu para um produto de decisão. Em vez de abrir com dados brutos, a experiência conduz a leitura por três perguntas: qual é o tamanho do problema, onde o risco muda de comportamento e o que acontece quando um cenário é alterado.</p><h2>De análise a produto</h2><ul><li>Visão executiva com indicadores, contexto e achados prioritários.</li><li>Exploração das relações entre satisfação, carga, projetos e remuneração.</li><li>Laboratório de risco conectado a um modelo Random Forest por uma API FastAPI no Cloud Run.</li><li>Experiência resiliente, com agregados versionados quando a API estiver indisponível e identificação transparente do modo demonstração.</li><li>Frontend responsivo com carregamento por rota, container queries, View Transitions e movimento reduzido por preferência do usuário.</li></ul><h2>Limites</h2><p>Os sinais representam associações encontradas neste conjunto. A aplicação trata a previsão como ponto de partida para investigação, não como decisão automatizada sobre pessoas.</p>`,
+      en: `<p>This Google Advanced Data Analytics capstone started from a public HR dataset and evolved into a decision product. Instead of opening with raw data, the experience guides the reader through three questions: how large is the problem, where does risk change behavior, and what happens when a scenario changes.</p><h2>From analysis to product</h2><ul><li>Executive view with headline indicators, context and priority findings.</li><li>Exploration of relationships across satisfaction, workload, projects and compensation.</li><li>Risk lab connected to a Random Forest model through a FastAPI service on Cloud Run.</li><li>Resilient experience with versioned aggregates when the API is unavailable and transparent demo-mode labeling.</li><li>Responsive frontend with route splitting, container queries, View Transitions and reduced-motion support.</li></ul><h2>Limitations</h2><p>The signals are associations found in this dataset. The application treats prediction as a starting point for investigation, not as an automated decision about people.</p>`,
     },
-    businessValue: { "pt-BR": "Mostra como combinar análise e produto para apoiar ações de retenção baseadas em sinais observáveis.", en: "Shows how analytics and product delivery can support retention actions based on observable signals." },
-    category: "ml", technologies: ["Python", "Machine Learning", "FastAPI", "Cloud Run", "React"], visibility: "public",
+    businessValue: { "pt-BR": "Traduz um modelo em uma experiência compreensível para investigar retenção, mantendo visíveis as evidências, a fonte e os limites da previsão.", en: "Translates a model into an understandable retention investigation experience while keeping the evidence, source and prediction limits visible." },
+    category: "ml", technologies: ["React 19", "TypeScript", "Recharts", "FastAPI", "Cloud Run"], visibility: "public",
     githubUrl: "https://github.com/leonardo-filho/salifort-hr-churn", liveUrl: "https://leonardo-filho.github.io/salifort-hr-churn/#/dashboard",
     images: [
-      { src: "/images/churn-dashboard-main.png", caption: { "pt-BR": "Painel principal com indicadores de rotatividade, horas e projetos.", en: "Main dashboard with attrition, hours and project metrics." } },
-      { src: "/images/churn-prediction-ui.png", caption: { "pt-BR": "Interface para simular a probabilidade de desligamento.", en: "Interface for simulating attrition probability." } },
+      { src: "/images/churn-dashboard-main.png", caption: { "pt-BR": "Visão executiva conduzida por problema, evidência e próxima ação.", en: "Executive view structured around problem, evidence and next action." } },
+      { src: "/images/churn-prediction-ui.png", caption: { "pt-BR": "Laboratório para comparar cenários e questionar o resultado do modelo.", en: "Risk lab for comparing scenarios and questioning the model output." } },
       { src: "/images/churn-architecture.png", caption: { "pt-BR": "Arquitetura da análise à aplicação web.", en: "Architecture from analysis to the web application." } },
+    ],
+    highlights: [
+      { value: { "pt-BR": "14.999", en: "14,999" }, label: { "pt-BR": "registros analisados", en: "records analyzed" } },
+      { value: { "pt-BR": "23,8%", en: "23.8%" }, label: { "pt-BR": "taxa histórica de saída", en: "historical attrition rate" } },
+      { value: { "pt-BR": "3", en: "3" }, label: { "pt-BR": "experiências interativas", en: "interactive experiences" } },
     ],
   },
   {

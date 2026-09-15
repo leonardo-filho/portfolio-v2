@@ -21,6 +21,9 @@ export default function ProjectDetails({ id, locale }: { id: string; locale: Loc
       {project.images[0] && <figure className="project-hero-image"><Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1400} height={800} priority/><figcaption>{project.images[0].caption[locale]}</figcaption></figure>}
       {!project.images[0] && project.visibility === "internal" && <figure className="project-hero-image project-placeholder-figure"><ProjectVisualPlaceholder projectId={project.id} locale={locale} detail/><figcaption>{t.placeholder.protected}</figcaption></figure>}
       {project.visibility === "internal" && <div className="privacy-note"><FiLock/><p>{t.internalNote}</p></div>}
+      {project.highlights && <section className="project-highlights" aria-label={locale === "pt-BR" ? "Números do projeto" : "Project highlights"}>
+        {project.highlights.map((highlight) => <article key={highlight.label.en}><strong>{highlight.value[locale]}</strong><span>{highlight.label[locale]}</span></article>)}
+      </section>}
       <div className="detail-grid">
         <article className="project-prose" dangerouslySetInnerHTML={{ __html: project.longDescription[locale] }} />
         <aside><span>{t.context}</span><p>{project.businessValue[locale]}</p></aside>
