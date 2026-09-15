@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FiArrowDownRight, FiMapPin } from "react-icons/fi";
 import { copy, localizedPath, type Locale } from "@/lib/i18n";
 
@@ -11,8 +10,8 @@ export default function Hero({ locale }: { locale: Locale }) {
     <section id="home" className="hero-section">
       <div className="hero-grid" aria-hidden />
       <div className="hero-main">
-        <div className="hero-portrait entrance entrance-1">
-          <Image src="/images/leonardo-filho.webp" alt="Leonardo Filho" width={520} height={650} sizes="(max-width: 768px) 128px, 240px" priority />
+        <div className="hero-portrait photo-placeholder entrance entrance-1" role="img" aria-label="Placeholder para a Foto 1">
+          <span className="photo-placeholder-label">Foto 1</span>
           <span className="portrait-index">01</span>
         </div>
         <div className="hero-copy">
