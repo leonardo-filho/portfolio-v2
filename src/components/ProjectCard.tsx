@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FiArrowUpRight, FiLock } from "react-icons/fi";
 import type { Project } from "@/data/projects";
 import { copy, localizedPath, type Locale } from "@/lib/i18n";
+import ProjectVisualPlaceholder from "@/components/ProjectVisualPlaceholder";
 
 export default function ProjectCard({ project, locale, index }: { project: Project; locale: Locale; index: number }) {
   const t = copy[locale].projects;
@@ -13,7 +14,7 @@ export default function ProjectCard({ project, locale, index }: { project: Proje
     <article className={`project-card ${index === 0 ? "project-featured" : ""}`}>
       <Link href={href}>
         <div className="project-visual">
-          {project.images[0] ? <Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1200} height={675} sizes="(max-width: 768px) 100vw, 50vw" /> : <div className="internal-visual"><span>LF / 0{project.id}</span><div className="data-lines"><i/><i/><i/><i/></div></div>}
+          {project.images[0] ? <Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1200} height={675} sizes="(max-width: 768px) 100vw, 50vw" /> : <ProjectVisualPlaceholder projectId={project.id} locale={locale} />}
           <span className="project-type">{project.visibility === "internal" ? <><FiLock/>{t.internal}</> : t.study}</span>
         </div>
         <div className="project-body">

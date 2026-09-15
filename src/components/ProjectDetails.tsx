@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { FiArrowLeft, FiArrowUpRight, FiGithub, FiLock } from "react-icons/fi";
 import { projects } from "@/data/projects";
 import { copy, localizedPath, type Locale } from "@/lib/i18n";
+import ProjectVisualPlaceholder from "@/components/ProjectVisualPlaceholder";
 
 export default function ProjectDetails({ id, locale }: { id: string; locale: Locale }) {
   const project = projects.find((item) => item.id.toString() === id);
@@ -18,6 +19,7 @@ export default function ProjectDetails({ id, locale }: { id: string; locale: Loc
         <div className="detail-tags">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
       </header>
       {project.images[0] && <figure className="project-hero-image"><Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1400} height={800} priority/><figcaption>{project.images[0].caption[locale]}</figcaption></figure>}
+      {!project.images[0] && project.visibility === "internal" && <figure className="project-hero-image project-placeholder-figure"><ProjectVisualPlaceholder projectId={project.id} locale={locale} detail/><figcaption>{t.placeholder.protected}</figcaption></figure>}
       {project.visibility === "internal" && <div className="privacy-note"><FiLock/><p>{t.internalNote}</p></div>}
       <div className="detail-grid">
         <article className="project-prose" dangerouslySetInnerHTML={{ __html: project.longDescription[locale] }} />
