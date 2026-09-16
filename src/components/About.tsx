@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FiCheck } from "react-icons/fi";
 import { copy, type Locale } from "@/lib/i18n";
 
@@ -7,8 +8,8 @@ export default function About({ locale }: { locale: Locale }) {
   const t = copy[locale].about;
   return (
     <section id="about" className="section about-section">
-      <div className="about-image photo-placeholder photo-placeholder-light" role="img" aria-label="Placeholder para a Foto 2">
-        <span className="photo-placeholder-label">Foto 2</span>
+      <div className="about-image">
+        <Image src="/images/leonardo-filho-about.jpg" alt="Leonardo Filho" width={1080} height={1739} sizes="(max-width: 768px) 100vw, 42vw" />
         <span className="portrait-index">02</span>
       </div>
       <div className="about-copy">
