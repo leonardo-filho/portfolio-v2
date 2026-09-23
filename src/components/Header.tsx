@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import { copy, localizedPath, switchLocalePath, type Locale } from "@/lib/i18n";
@@ -27,7 +28,7 @@ export default function Header() {
     <header className="site-header">
       <div className="nav-shell">
         <Link href={`${root}#home`} className="brand" aria-label="Leonardo Filho">
-          <span className="brand-mark">LF</span>
+          <Image className="brand-mark" src="/lf-logo-exata.svg" width={36} height={36} alt="" aria-hidden="true" />
           <span className="brand-copy"><strong>Leonardo Filho</strong><small>{t.role}</small></span>
         </Link>
         <nav className="desktop-nav" aria-label={t.navigation}>

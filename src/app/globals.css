@@ -24,7 +24,7 @@ button { font: inherit; }
 .site-header { position: fixed; z-index: 50; top: 0; left: 0; width: 100%; padding: .85rem 1rem 0; }
 .nav-shell { max-width: 1180px; margin: auto; min-height: 58px; padding: .55rem .65rem .55rem .8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: rgba(17,17,15,.88); border: 1px solid var(--line-dark); backdrop-filter: blur(18px); }
 .brand { display: flex; align-items: center; gap: .7rem; min-width: 210px; }
-.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; background: var(--acid); color: var(--ink); font-weight: 900; font-size: .75rem; }
+.brand-mark { display: block; flex: none; width: 36px; height: 36px; }
 .brand-copy { display: grid; line-height: 1.15; }
 .brand-copy strong { font-size: .78rem; }
 .brand-copy small { margin-top: .18rem; font-size: .59rem; color: #9c9c94; text-transform: uppercase; letter-spacing: .08em; }
