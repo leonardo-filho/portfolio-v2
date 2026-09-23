@@ -9,7 +9,7 @@ export default function About({ locale }: { locale: Locale }) {
   return (
     <section id="about" className="section about-section">
       <div className="about-image">
-        <Image src="/images/leonardo-filho-about.jpg" alt="Leonardo Filho" width={1080} height={1739} sizes="(max-width: 768px) 100vw, 42vw" />
+        <Image src="/images/leonardo-about.webp" alt="Leonardo Filho" fill quality={95} sizes="(max-width: 680px) 100vw, 42vw" />
         <span className="portrait-index">02</span>
       </div>
       <div className="about-copy">
