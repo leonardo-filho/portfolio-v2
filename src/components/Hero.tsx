@@ -12,7 +12,7 @@ export default function Hero({ locale }: { locale: Locale }) {
       <div className="hero-grid" aria-hidden />
       <div className="hero-main">
         <div className="hero-portrait entrance entrance-1">
-          <Image src="/images/leonardo-hero-hd.webp" alt="Leonardo Filho" fill quality={95} sizes="(max-width: 680px) 144px, (max-width: 900px) 135px, 260px" priority />
+          <Image src="/images/leonardo-hero-hd.webp" alt="Leonardo Filho" fill quality={95} sizes="(max-width: 680px) 168px, (max-width: 900px) 160px, 260px" priority />
           <span className="portrait-index">01</span>
         </div>
         <div className="hero-copy">

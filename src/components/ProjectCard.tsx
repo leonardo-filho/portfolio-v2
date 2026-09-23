@@ -5,16 +5,16 @@ import Link from "next/link";
 import { FiArrowUpRight, FiLock } from "react-icons/fi";
 import type { Project } from "@/data/projects";
 import { copy, localizedPath, type Locale } from "@/lib/i18n";
-import ProjectVisualPlaceholder from "@/components/ProjectVisualPlaceholder";
+import ProjectVisual from "@/components/ProjectVisual";
 
-export default function ProjectCard({ project, locale, index }: { project: Project; locale: Locale; index: number }) {
+export default function ProjectCard({ project, locale, index, featured = false }: { project: Project; locale: Locale; index: number; featured?: boolean }) {
   const t = copy[locale].projects;
   const href = localizedPath(locale, `/projects/${project.id}`);
   return (
-    <article className={`project-card ${index === 0 ? "project-featured" : ""}`}>
+    <article className={`project-card${featured ? " project-featured" : ""}`}>
       <Link href={href}>
         <div className="project-visual">
-          {project.images[0] ? <Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1200} height={675} sizes="(max-width: 768px) 100vw, 50vw" /> : <ProjectVisualPlaceholder projectId={project.id} locale={locale} />}
+          {project.visual ? <ProjectVisual visual={project.visual} locale={locale} /> : project.images[0] && <Image src={project.images[0].src} alt={project.images[0].caption[locale]} width={1200} height={675} sizes={featured ? "(max-width: 680px) 100vw, 60vw" : "(max-width: 680px) 100vw, 50vw"} />}
           <span className="project-type">{project.visibility === "internal" ? <><FiLock/>{t.internal}</> : t.study}</span>
         </div>
         <div className="project-body">

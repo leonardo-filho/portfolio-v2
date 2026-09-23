@@ -16,10 +16,10 @@ export const resumeByLocale: Record<Locale, {
       {
         company: "Quadra Engenharia", role: "Especialista em Engenharia de Dados", period: "jun. 2025 — atual", location: "Belém, PA · PJ",
         highlights: [
-          "Construção e operação de pipelines em Google Cloud para integrar ERP, APIs, arquivos e planilhas ao BigQuery, com cargas idempotentes e validação entre origem e destino.",
-          "Criação de automações que auditam rotinas financeiras e de suprimentos, identificam exceções e entregam relatórios rastreáveis aos responsáveis.",
-          "Desenvolvimento do Quadra One, plataforma interna de indicadores executivos com Next.js, TypeScript, ECharts e dados do BigQuery.",
-          "Implantação de telemetria e controles de qualidade para acompanhar execuções, atualização das fontes e falhas antes que cheguem aos relatórios.",
+          "Construção e operação de pipelines em Google Cloud que integram ERP, APIs, arquivos e planilhas ao BigQuery, com cargas idempotentes e validação entre origem e destino.",
+          "Criação do robô de auditoria de contas a pagar: 14 regras, revisão humana e e-mail por responsável. A cobertura passou de 2 para as 32 empresas do grupo e o falso positivo caiu de 58% para 34%.",
+          "Desenvolvimento do Quadra One, plataforma executiva com 51 páginas, login corporativo e acesso por papel, apresentada para mais de 50 pessoas da empresa.",
+          "Telemetria comum para 9 robôs e monitoramento de 53 fontes de dados, para que atrasos e falhas apareçam antes de chegar aos relatórios.",
         ], stack: quadraStack,
       },
       {
@@ -49,7 +49,7 @@ export const resumeByLocale: Record<Locale, {
     experiences: [
       {
         company: "Quadra Engenharia", role: "Data Engineering Specialist", period: "Jun 2025 — present", location: "Belém, Brazil · Contractor",
-        highlights: ["Build and operate Google Cloud pipelines that integrate ERP, APIs, files and spreadsheets into BigQuery, with idempotent loads and source-to-target validation.", "Create automation that audits financial and procurement workflows, identifies exceptions and delivers traceable reports to the people responsible.", "Develop Quadra One, an internal executive analytics platform built with Next.js, TypeScript, ECharts and BigQuery data.", "Implemented telemetry and data quality controls to track runs, source freshness and failures before they reach business reports."],
+        highlights: ["Build and operate Google Cloud pipelines that integrate ERP, APIs, files and spreadsheets into BigQuery, with idempotent loads and source-to-target validation.", "Built the accounts payable audit bot: 14 rules, human review and one email per owner. Coverage grew from 2 to all 32 group companies and false positives fell from 58% to 34%.", "Develop Quadra One, an executive platform with 51 pages, corporate sign-in and role-based access, presented to more than 50 people across the company.", "Shared telemetry for 9 bots and monitoring of 53 data sources, so delays and failures surface before they reach business reports."],
         stack: quadraStack,
       },
       {
