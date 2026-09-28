@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FiArrowDownRight, FiMapPin } from "react-icons/fi";
+import { FiArrowDownRight, FiDownload, FiMapPin } from "react-icons/fi";
 import { copy, localizedPath, type Locale } from "@/lib/i18n";
 
 export default function Hero({ locale }: { locale: Locale }) {
@@ -23,14 +23,11 @@ export default function Hero({ locale }: { locale: Locale }) {
           <p className="hero-description entrance entrance-4">{t.description}</p>
           <div className="hero-actions entrance entrance-4">
             <a className="button button-primary" href={`${root}#projects`}>{t.projects}<FiArrowDownRight /></a>
-            <a className="text-link" href={`${root}#capabilities`}>{t.capabilities}</a>
+            <a className="button button-outline" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio}</a>
           </div>
           <p className="hero-location"><FiMapPin /> {t.location}</p>
         </div>
       </div>
-      <ol className="process-strip entrance entrance-4">
-        {t.steps.map((step, index) => <li key={step.title}><span>0{index + 1}</span><div><strong>{step.title}</strong><small>{step.description}</small></div></li>)}
-      </ol>
     </section>
   );
 }

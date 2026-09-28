@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiDownload, FiMenu, FiX } from "react-icons/fi";
 import { copy, localizedPath, switchLocalePath, type Locale } from "@/lib/i18n";
 
 export default function Header() {
@@ -13,8 +13,8 @@ export default function Header() {
   const t = copy[locale];
   const [open, setOpen] = useState(false);
   const nav = [
-    [t.nav.capabilities, "capabilities"], [t.nav.projects, "projects"], [t.nav.experience, "experience"],
-    [t.nav.credentials, "credentials"], [t.nav.about, "about"], [t.nav.contact, "contact"],
+    [t.nav.projects, "projects"], [t.nav.experience, "experience"],
+    [t.nav.credentials, "credentials"], [t.nav.contact, "contact"],
   ];
 
   useEffect(() => {
@@ -35,6 +35,7 @@ export default function Header() {
           {nav.map(([label, id]) => <Link key={id} href={`${root}#${id}`}>{label}</Link>)}
         </nav>
         <div className="nav-actions">
+          <a className="header-download" href={t.portfolioFile} download aria-label={`${t.downloadPortfolio} PDF`}><FiDownload aria-hidden="true" /><span className="download-long">{t.downloadPortfolio}</span><span className="download-short">PDF</span></a>
           <Link className="language-switch" href={switchLocalePath(pathname, locale === "en" ? "pt-BR" : "en")} hrefLang={locale === "en" ? "pt-BR" : "en"} aria-label={locale === "en" ? t.languageHint : t.language}>
             <span className={locale === "pt-BR" ? "active" : ""}>PT</span><i aria-hidden>/</i><span className={locale === "en" ? "active" : ""}>EN</span>
           </Link>
@@ -44,6 +45,7 @@ export default function Header() {
         {open && (
           <nav id="mobile-nav" className="mobile-nav" aria-label={t.navigation}>
             {nav.map(([label, id]) => <Link key={id} href={`${root}#${id}`} onClick={() => setOpen(false)}>{label}<span>↘</span></Link>)}
+            <a href={t.portfolioFile} download onClick={() => setOpen(false)}>{t.downloadPortfolio}<FiDownload aria-hidden="true" /></a>
           </nav>
         )}
     </header>

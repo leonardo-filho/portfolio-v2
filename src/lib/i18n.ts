@@ -18,6 +18,7 @@ export const copy = {
     role: "Especialista em Engenharia de Dados",
     navigation: "Navegação principal", openMenu: "Abrir menu", closeMenu: "Fechar menu",
     language: "Versão em inglês", languageHint: "Mudar para inglês",
+    downloadPortfolio: "Baixar portfólio", portfolioFile: "/portfolio-leonardo-filho-pt.pdf",
     nav: { capabilities: "Atuação", projects: "Projetos", experience: "Trajetória", credentials: "Formação", about: "Sobre", contact: "Contato" },
     hero: {
       eyebrow: "Leonardo Filho · Engenharia de dados & Analytics",
@@ -55,6 +56,7 @@ export const copy = {
     projects: {
       eyebrow: "Trabalho aplicado", title: "Projetos selecionados", description: "Produtos internos e estudos de portfólio: o problema, a implementação e o que muda para o negócio.",
       filters: { all: "Todos", engineering: "Engenharia de dados", ml: "Machine learning", bi: "BI & Analytics" },
+      showAll: "Ver todos os projetos", showLess: "Mostrar projetos selecionados",
       filterLabel: "Filtrar projetos por área", view: "Conhecer o projeto", back: "Todos os projetos",
       internal: "Produto interno", study: "Estudo de portfólio", context: "Aplicação no negócio",
       internalNote: "Projeto desenvolvido na Quadra Engenharia. Visão geral do trabalho, com código e dados internos preservados.",
@@ -66,7 +68,7 @@ export const copy = {
       github: "Repositório", live: "Ver aplicação", gallery: "Galeria", count: "projetos",
       notFound: "Projeto não encontrado", notFoundText: "O endereço pode ter mudado. Explore os projetos disponíveis no portfólio.", home: "Voltar ao início",
     },
-    experience: { eyebrow: "Trajetória", title: "Experiência que conecta tecnologia e operação", description: "Da qualidade de software à construção de produtos de dados usados no dia a dia." },
+    experience: { eyebrow: "Trajetória", title: "Experiência que conecta tecnologia e operação", description: "Da qualidade de software à construção de produtos de dados usados no dia a dia.", details: "Ver mais sobre esta experiência" },
     credentials: {
       eyebrow: "Formação & aprendizado", title: "Conhecimento em evolução", description: "Formação acadêmica, especializações, cursos e badges que complementam minha prática.",
       education: "Formação acadêmica", languages: "Idiomas", certifications: "Cursos e credenciais", latest: "Mais recente",
@@ -91,6 +93,7 @@ export const copy = {
     role: "Data Engineering Specialist",
     navigation: "Primary navigation", openMenu: "Open menu", closeMenu: "Close menu",
     language: "English version", languageHint: "Switch to Brazilian Portuguese",
+    downloadPortfolio: "Download portfolio", portfolioFile: "/portfolio-leonardo-filho-en.pdf",
     nav: { capabilities: "Expertise", projects: "Projects", experience: "Experience", credentials: "Credentials", about: "About", contact: "Contact" },
     hero: {
       eyebrow: "Leonardo Filho · Data Engineering & Analytics",
@@ -128,6 +131,7 @@ export const copy = {
     projects: {
       eyebrow: "Applied work", title: "Selected projects", description: "Internal products and portfolio studies: the problem, the implementation and the business application.",
       filters: { all: "All", engineering: "Data engineering", ml: "Machine learning", bi: "BI & Analytics" },
+      showAll: "View all projects", showLess: "Show selected projects",
       filterLabel: "Filter projects by discipline", view: "Explore project", back: "All projects",
       internal: "Internal product", study: "Portfolio study", context: "Business application",
       internalNote: "Developed at Quadra Engenharia. This overview describes the work while keeping internal code and data private.",
@@ -139,7 +143,7 @@ export const copy = {
       github: "Repository", live: "View application", gallery: "Gallery", count: "projects",
       notFound: "Project not found", notFoundText: "This address may have changed. Explore the available projects in the portfolio.", home: "Back to home",
     },
-    experience: { eyebrow: "Career", title: "Connecting technology and operations", description: "From software quality to data products used in everyday business operations." },
+    experience: { eyebrow: "Career", title: "Connecting technology and operations", description: "From software quality to data products used in everyday business operations.", details: "Read more about this role" },
     credentials: {
       eyebrow: "Education & learning", title: "Building on what I know", description: "Degrees, specializations, courses and badges that complement my hands-on work.",
       education: "Education", languages: "Languages", certifications: "Courses and credentials", latest: "Latest",

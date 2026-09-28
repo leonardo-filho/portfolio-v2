@@ -1,6 +1,6 @@
 "use client";
 
-import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
+import { FiArrowUpRight, FiDownload, FiGithub, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
 import { copy, emailAddress, type Locale } from "@/lib/i18n";
 
 export default function Contact({ locale }: { locale: Locale }) {
@@ -8,8 +8,9 @@ export default function Contact({ locale }: { locale: Locale }) {
   return (
     <section id="contact" className="contact-section">
       <div>
-        <p className="eyebrow">08 · {t.eyebrow}</p><h2>{t.title}</h2><p>{t.description}</p>
+        <p className="eyebrow">04 · {t.eyebrow}</p><h2>{t.title}</h2><p>{t.description}</p>
         <a className="contact-email" href={`mailto:${emailAddress}`}>{emailAddress}<FiArrowUpRight/></a>
+        <a className="button button-primary contact-download" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio}</a>
       </div>
       <aside>
         <p><FiMapPin/>{t.location}</p>
