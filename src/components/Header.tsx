@@ -13,8 +13,8 @@ export default function Header() {
   const t = copy[locale];
   const [open, setOpen] = useState(false);
   const nav = [
-    [t.nav.projects, "projects"], [t.nav.experience, "experience"],
-    [t.nav.credentials, "credentials"], [t.nav.contact, "contact"],
+    [t.nav.capabilities, "capabilities"], [t.nav.projects, "projects"],
+    [t.nav.experience, "experience"], [t.nav.contact, "contact"],
   ];
 
   useEffect(() => {

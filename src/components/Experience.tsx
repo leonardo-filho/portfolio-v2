@@ -7,7 +7,7 @@ export default function Experience({ locale }: { locale: Locale }) {
   const t = copy[locale].experience;
   return (
     <section id="experience" className="section experience-section">
-      <div className="section-heading split-heading"><div><p className="eyebrow dark">02 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p></div>
+      <div className="section-heading split-heading"><div><p className="eyebrow dark">03 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p></div>
       <div className="timeline">
         {resumeByLocale[locale].experiences.map((job, index) => <article key={`${job.company}-${job.period}`}>
           <div className="timeline-meta"><span>0{index + 1}</span><time>{job.period}</time><p>{job.location}</p></div>

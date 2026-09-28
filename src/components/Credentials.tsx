@@ -12,7 +12,7 @@ export default function Credentials({ locale }: { locale: Locale }) {
   const visibleCerts = expanded ? certifications : certifications.slice(0, 3);
   return (
     <section id="credentials" className="section credentials-section">
-      <div className="section-heading split-heading light"><div><p className="eyebrow">03 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p></div>
+      <div className="section-heading split-heading light"><div><p className="eyebrow">04 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p></div>
       <div className="credential-layout">
         <div className="academic-column">
           <h3>{t.education}</h3>

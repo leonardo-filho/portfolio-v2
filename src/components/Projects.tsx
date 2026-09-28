@@ -12,7 +12,7 @@ export default function Projects({ locale }: { locale: Locale }) {
   return (
     <section id="projects" className="section projects-section">
       <div className="section-heading split-heading light">
-        <div><p className="eyebrow">01 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p>
+        <div><p className="eyebrow">02 · {t.eyebrow}</p><h2>{t.title}</h2></div><p>{t.description}</p>
       </div>
       <div className="project-grid">
         {visible.map((project, index) => <ProjectCard key={project.id} project={project} locale={locale} index={index} featured={index === 0} />)}

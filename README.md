@@ -1,6 +1,6 @@
 # Portfólio de Leonardo Filho
 
-Site em Next.js com versões em português e inglês. A página inicial apresenta projetos selecionados, experiência, formação e contato. Os PDFs do portfólio ficam em `public/` e são oferecidos para download no menu, na abertura e no contato.
+Site em Next.js com versões em português e inglês. A página inicial apresenta os problemas de negócio que Leonardo resolve, projetos que mostram a aplicação do trabalho, experiência, formação e contato. Os PDFs do portfólio ficam em `public/` e são oferecidos para download no menu, na abertura e no contato.
 
 ## Desenvolvimento
 

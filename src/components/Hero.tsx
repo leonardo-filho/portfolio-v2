@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { FiArrowDownRight, FiDownload, FiMapPin } from "react-icons/fi";
-import { copy, localizedPath, type Locale } from "@/lib/i18n";
+import { FiArrowDownRight, FiArrowUpRight, FiDownload, FiMapPin } from "react-icons/fi";
+import { copy, emailAddress, localizedPath, type Locale } from "@/lib/i18n";
 
 export default function Hero({ locale }: { locale: Locale }) {
   const t = copy[locale].hero;
@@ -22,9 +22,10 @@ export default function Hero({ locale }: { locale: Locale }) {
           </h1>
           <p className="hero-description entrance entrance-4">{t.description}</p>
           <div className="hero-actions entrance entrance-4">
-            <a className="button button-primary" href={`${root}#projects`}>{t.projects}<FiArrowDownRight /></a>
-            <a className="button button-outline" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio}</a>
+            <a className="button button-primary" href={`mailto:${emailAddress}?subject=${encodeURIComponent(t.inquirySubject)}`}>{t.contactAction}<FiArrowUpRight aria-hidden="true" /></a>
+            <a className="button button-outline" href={`${root}#projects`}>{t.projects}<FiArrowDownRight aria-hidden="true" /></a>
           </div>
+          <a className="hero-download-link" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio} PDF</a>
           <p className="hero-location"><FiMapPin /> {t.location}</p>
         </div>
       </div>
