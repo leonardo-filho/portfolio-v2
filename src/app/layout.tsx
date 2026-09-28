@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 import "./globals.css";
+import "./home-refresh.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { copy, siteUrl } from "@/lib/i18n";
