@@ -22,7 +22,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           </div>
           <div className="hero-footnote entrance entrance-4">
             <p className="hero-location"><FiMapPin aria-hidden="true" /> {t.location}</p>
-            <a className="hero-download-link" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio} PDF</a>
+            <a className="hero-download-link" href={copy[locale].cvFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadCv} PDF</a>
           </div>
         </div>
         <div className="hero-portrait entrance entrance-3">

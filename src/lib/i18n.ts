@@ -18,7 +18,7 @@ export const copy = {
     role: "Especialista em Engenharia de Dados",
     navigation: "Navegação principal", openMenu: "Abrir menu", closeMenu: "Fechar menu",
     language: "Versão em inglês", languageHint: "Mudar para inglês",
-    downloadPortfolio: "Baixar portfólio", portfolioFile: "/portfolio-leonardo-filho-pt.pdf",
+    downloadCv: "Baixar currículo", cvFile: "/cv-leonardo-filho-pt.pdf",
     nav: { capabilities: "Soluções", projects: "Projetos", experience: "Trajetória", credentials: "Formação", about: "Sobre", contact: "Contato" },
     hero: {
       eyebrow: "Leonardo Filho · Engenharia de dados & Analytics",
@@ -92,7 +92,7 @@ export const copy = {
     role: "Data Engineering Specialist",
     navigation: "Primary navigation", openMenu: "Open menu", closeMenu: "Close menu",
     language: "English version", languageHint: "Switch to Brazilian Portuguese",
-    downloadPortfolio: "Download portfolio", portfolioFile: "/portfolio-leonardo-filho-en.pdf",
+    downloadCv: "Download resume", cvFile: "/cv-leonardo-filho.pdf",
     nav: { capabilities: "Solutions", projects: "Projects", experience: "Experience", credentials: "Credentials", about: "About", contact: "Contact" },
     hero: {
       eyebrow: "Leonardo Filho · Data Engineering & Analytics",

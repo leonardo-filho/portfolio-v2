@@ -10,7 +10,7 @@ export default function Contact({ locale }: { locale: Locale }) {
       <div>
         <p className="eyebrow">05 · {t.eyebrow}</p><h2>{t.title}</h2><p>{t.description}</p>
         <a className="contact-email" href={`mailto:${emailAddress}`}>{emailAddress}<FiArrowUpRight/></a>
-        <a className="button button-primary contact-download" href={copy[locale].portfolioFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadPortfolio}</a>
+        <a className="button button-primary contact-download" href={copy[locale].cvFile} download><FiDownload aria-hidden="true" />{copy[locale].downloadCv}</a>
       </div>
       <aside>
         <p><FiMapPin/>{t.location}</p>
