@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: copy["pt-BR"].meta.title,
     description: copy["pt-BR"].meta.description,
     url: siteUrl,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-card-pt.png", width: 1200, height: 630, alt: "Leonardo Filho: dados confiáveis, decisões melhores" }],
     locale: "pt_BR",
     alternateLocale: ["en_US"],
     type: "website",

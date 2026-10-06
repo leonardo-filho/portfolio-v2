@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: copy.en.meta.title,
   description: copy.en.meta.description,
   alternates: { canonical: "/en", languages: { "pt-BR": "/", en: "/en" } },
-  openGraph: { title: copy.en.meta.title, description: copy.en.meta.description, url: "/en", locale: "en_US" },
+  openGraph: { title: copy.en.meta.title, description: copy.en.meta.description, url: "/en", locale: "en_US", images: [{ url: "/og-card-en.png", width: 1200, height: 630, alt: "Leonardo Filho: reliable data, better decisions" }] },
 };
 
 export default function EnglishHome() {
