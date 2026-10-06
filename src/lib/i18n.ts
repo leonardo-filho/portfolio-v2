@@ -1,6 +1,6 @@
 export type Locale = "pt-BR" | "en";
 
-export const siteUrl = "https://leonardo-filho.vercel.app";
+export const siteUrl = "https://leonardofilho.com.br";
 export const emailAddress = "leonardofilho.work@gmail.com";
 
 export function localizedPath(locale: Locale, path = "/") {
